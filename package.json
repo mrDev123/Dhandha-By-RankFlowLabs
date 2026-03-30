@@ -1,0 +1,17 @@
+{
+  "name": "dhandha-by-rankflowlabs",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "ai-analysis"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\"",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "npm run dev --workspace backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
