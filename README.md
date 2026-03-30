@@ -1,43 +1,23 @@
 # Dhandha-By-RankFlowLabs
 
-Initial project structure for a mobile-first business photo quality web app.
+Mobile-first business photo quality app scaffold with strict separation of concerns.
 
-## Stack
+## Architecture (see `ARCHITECTURE.md`)
 
-- **Frontend:** React (Vite)
-- **Backend:** Node.js + Express
-- **Storage:** Firebase Storage or AWS S3 (adapter-ready)
+- **Frontend (`frontend`)**: UI only (camera, overlays, report rendering, API calls)
+- **Backend (`backend`)**: API + orchestration/business logic (upload, storage, persistence, analysis orchestration)
+- **AI Module (`ai-analysis`)**: isolated image-quality analysis logic (brightness, blur, framing + suggestions)
 
-## Folder Structure
+## Monorepo Structure
 
 ```text
 .
+├── ARCHITECTURE.md
 ├── frontend/
-│   ├── src/components/      # Camera capture, overlay, and report components
-│   ├── src/hooks/           # Camera and upload hooks
-│   ├── src/pages/           # Page-level UI composition
-│   ├── src/services/        # Backend API integration
-│   └── src/utils/           # Shared constants/helpers
 ├── backend/
-│   └── src/
-│       ├── controllers/     # Request handlers
-│       ├── middleware/      # Multer upload middleware
-│       ├── routes/          # API routes
-│       ├── services/        # Image analysis service
-│       ├── storage/         # Firebase/S3 upload adapters
-│       ├── db/              # Persistence layer (placeholder)
-│       ├── models/          # Model typedefs
-│       └── utils/           # Utilities (async handler)
+├── ai-analysis/
 └── docs/
-    └── PROJECT_STRUCTURE.md
 ```
-
-## Initial Files Included
-
-- Frontend camera capture + overlay + quality report components
-- Frontend upload API client and starter hooks (`useCamera`, `usePhotoUpload`)
-- Backend analyze route wired through controller + middleware
-- Placeholder image analysis, storage adapters, and DB persistence
 
 ## Start
 
