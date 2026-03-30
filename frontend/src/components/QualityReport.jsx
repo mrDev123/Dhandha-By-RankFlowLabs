@@ -17,17 +17,19 @@ export function QualityReport({ analysis, status }) {
     );
   }
 
+  const metrics = analysis?.metrics || {};
+
   return (
     <section className="report-card">
       <h2>2) Quality Report</h2>
       <ul>
-        <li>Blur score: {analysis.metrics.blurScore}</li>
-        <li>Lighting score: {analysis.metrics.lightingScore}</li>
-        <li>Composition score: {analysis.metrics.compositionScore}</li>
+        <li>Brightness score: {metrics.brightnessScore ?? 'N/A'}</li>
+        <li>Blur score: {metrics.blurScore ?? 'N/A'}</li>
+        <li>Framing score: {metrics.framingScore ?? 'N/A'}</li>
       </ul>
       <h3>Suggested improvements</h3>
       <ul>
-        {analysis.suggestions.map((suggestion) => (
+        {(analysis?.suggestions || []).map((suggestion) => (
           <li key={suggestion}>{suggestion}</li>
         ))}
       </ul>
