@@ -45,26 +45,86 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.75rem;
 }
 
 .safe-area {
-  width: 82%;
-  height: 70%;
-  border: 2px dashed rgba(255, 255, 255, 0.9);
+  position: relative;
+  width: 100%;
+  flex: 1;
+  border: 2px dashed rgba(255, 255, 255, 0.95);
   border-radius: 8px;
 }
 
-.overlay-tip {
+.rule-of-thirds {
   position: absolute;
-  bottom: 12px;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.rule-of-thirds--v1,
+.rule-of-thirds--v2 {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.rule-of-thirds--v1 {
+  left: 33.33%;
+}
+
+.rule-of-thirds--v2 {
+  left: 66.66%;
+}
+
+.rule-of-thirds--h1,
+.rule-of-thirds--h2 {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.rule-of-thirds--h1 {
+  top: 33.33%;
+}
+
+.rule-of-thirds--h2 {
+  top: 66.66%;
+}
+
+.target-label {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.2rem 0.45rem;
   border-radius: 999px;
-  padding: 0.4rem 0.7rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.72rem;
+}
+
+.overlay-instructions {
+  margin-top: 0.6rem;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.74rem;
+}
+
+.overlay-title {
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.overlay-instructions ul {
+  margin: 0;
+  padding-left: 1rem;
+  line-height: 1.2;
 }
 
 .controls {
@@ -89,6 +149,10 @@ button:disabled {
 
 @media (min-width: 640px) {
   .controls {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .overlay-instructions {
+    max-width: 360px;
   }
 }
