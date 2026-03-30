@@ -1,0 +1,94 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #111827;
+  background: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.camera-card,
+.report-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.preview-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: black;
+}
+
+.preview {
+  width: 100%;
+  min-height: 240px;
+  object-fit: cover;
+}
+
+.overlay-guide {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+
+.safe-area {
+  width: 82%;
+  height: 70%;
+  border: 2px dashed rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.overlay-tip {
+  position: absolute;
+  bottom: 12px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+}
+
+.controls {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.8rem;
+  border: 0;
+  border-radius: 8px;
+  background: #111827;
+  color: white;
+  font-weight: 600;
+}
+
+button:disabled {
+  background: #9ca3af;
+}
+
+@media (min-width: 640px) {
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+}
